@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gigantic Aquarium</title>
+    <style>
+        /* Toàn bộ bể cá */
+        body, html {
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            height: 100vh;
+            background-color: #001f3f; /* Màu nền của bể cá */
+        }
+
+        .aquarium {
+            position: relative;
+            width: 100%;
+            height: 100vh;
+            overflow: hidden;
+            background: linear-gradient(to top, #2593c9 50%, #c4cfd6 100%); /* Màu nước xanh da trời nhẹ nhàng */
+        }
+
+        /* Hiệu ứng gợn sóng */
+        @keyframes wave {
+            0% { transform: translateY(0); }
+            50% { transform: translateY(5px); }
+            100% { transform: translateY(0); }
+        }
+         /* Cá mập */
+         .shark {
+            position: absolute;
+            width: 1500px; /* Kích thước cá */
+            height: 150px; 
+            background-size: contain;
+            background-repeat: no-repeat;
+            animation: sharkSwim linear infinite;
+            animation-duration: 20s; /* Thời gian bơi */
+            
+        }
+        @keyframes sharkSwim {
+             0% { left: -150px; top: 30%; transform: scaleX(1); } /* Bắt đầu từ bên trái, quay phải */
+             50% { left: calc(100vw - 150px); top: 50%; transform: scaleX(1); } /* Bơi đến gần hết màn hình bên phải */
+             51% { transform: scaleX(-1); } /* Quay đầu */
+             100% { left: -150px; top: 30%; transform: scaleX(-1); } /* Quay trở lại vị trí ban đầu */
+}
+        
+
+
+        /* Cá */
+        .fish {
+            position: absolute;
+            width: 90px; /* Kích thước cá */
+            height: 60px; 
+            background-size: contain;
+            background-repeat: no-repeat;
+            animation: fishSwim linear infinite;
+            animation-duration: 10s; /* Thời gian bơi */
+        }
+
+        @keyframes fishSwim {
+            0% { left: -100px; transform: scaleX(1); }
+            50% { left: calc(100vw - 100px); transform: scaleX(1); }
+            51% { transform: scaleX(-1); }
+            100% { left: -100px; transform: scaleX(-1); }
+        }
+        /* Rùa */
+        .turtle {
+            position: absolute;
+            width: 150px; /* Kích thước rùa */
+            height: 130px;
+            background-size: contain;
+            background-repeat: no-repeat;
+            animation: turtleSwim linear infinite;
+            animation-duration: 20s;
+        }
+
+        @keyframes turtleSwim {
+            0% { left: -100px; top: calc(30% + (random() * 40%)); transform: scaleX(1); }
+            50% { left: calc(100vw - 100px); top: calc(30% + (random() * 40%)); transform: scaleX(1); }
+            51% { transform: scaleX(-1); }
+            100% { left: -100px; top: calc(30% + (random() * 40%)); transform: scaleX(-1); }
+        }
+
+        /* Sứa */
+        .jellyfish {
+            position: absolute;
+            width: 130px; /* Kích thước sứa */
+            height: 130px;
+            background-size: contain;
+            background-repeat: no-repeat;
+            animation: jellyfishFloat linear infinite;
+            
+           
+        }
+        .jellyfish1 {
+            background-image: url(sứa.png); /* Hình ảnh sứa 1 */
+            left: 15%; /* Vị trí bên trái */
+            top: 20%; /* Vị trí phía trên */
+            animation-duration: 5s; /* Thời gian hoạt hình */
+        }
+
+        .jellyfish2 {
+            background-image: url(sứa.png); /* Hình ảnh sứa 2 */
+            left: 75%; /* Vị trí bên trái */
+            top: 40%; /* Vị trí phía trên */
+            animation-duration: 5s;
+        }
+
+        @keyframes jellyfishFloat {
+            0% { transform: translateY(0); }
+            50% { transform: translateY(-60px); } /* Di chuyển lên nhẹ */
+            100% { transform: translateY(0); }
+        }
+        
+
+        /* Sao biển */
+        .starfish {
+            position: absolute;
+            width: 50px; /* Kích thước sao biển */
+            height: 50px;
+            background-size: contain;
+            background-repeat: no-repeat;
+            bottom: 5%;
+            left: calc(5% + (random() * 90%));
+        }
+        .starfish1 {
+            background-image: url(sanho.hdcbhb-removebg-preview.png); /* Hình ảnh sao biển 1 */
+            left: 10%; /* Vị trí bên trái */
+            bottom: 10%; /* Vị trí phía dưới */
+        }
+
+        .starfish2 {
+            background-image: url(saobien.hdac-removebg-preview.png); /* Hình ảnh sao biển 2 */
+            left: 30%; /* Vị trí bên trái */
+            bottom: 20%; /* Vị trí phía dưới */
+        }
+
+        .starfish3 {
+            background-image: url(sanhodep.hbchu-removebg-preview.png); /* Hình ảnh sao biển 3 */
+            left: 50%; /* Vị trí bên trái */
+            bottom: 10%; /* Vị trí phía dưới */
+        }
+
+        /* San hô */
+        .coral {
+            position: absolute;
+            width: 120px; /* Kích thước san hô */
+            height: 100px;
+            background-size: contain;
+            background-repeat: no-repeat;
+            bottom: 0;
+            left: calc(5% + (random() * 90%));
+        }
+      
+
+        /* Vị trí từng san hô */
+        .coral1 { left: 3%; background-image: url(sanhodep.hbchu-removebg-preview.png); }
+        .coral2 { left: 9%; background-image: url(sanhodep.hbsvb-removebg-preview.png); }
+        .coral3 { left: 14%; background-image: url(sanhodep.hbchu-removebg-preview.png); }
+        .coral4 { left: 20%; background-image: url(sanhodep.hbsvb-removebg-preview.png); }
+        .coral5 { left: 25%; background-image: url(sanhodep.hbchu-removebg-preview.png); }
+        .coral6 { left: 29%; background-image: url(sanhodep.hbsvb-removebg-preview.png); }
+        .coral7 { left: 33%; background-image: url(sanho.hbch-removebg-preview.png); }
+        .coral8 { left: 38%; background-image: url(sanhodep.hbsvb-resanhodepmovebg-preview.png); }
+        .coral9 { left: 44%; background-image: url(sanhodep.hbsvb-removebg-preview.png); }
+        .coral10 { left: 49%; background-image: url(sanhodep.hbchu-removebg-preview.png); }
+        .coral11 { left: 54%; background-image: url(sanhodep.hbsvb-removebg-preview.png); }
+        .coral12 { left: 59%; background-image: url(sanho.hbch-removebg-preview.png); }
+        .coral13 { left: 65%; background-image: url(sanho.bcdv-removebg-preview.png); }
+        .coral15 { left: 77%; background-image: url(sanhodep.hbchu-removebg-preview.png); }
+        .coral16 { left: 82%; background-image: url(sanho.bcdv-removebg-preview.png); }
+        .coral17 { left: 86%; background-image: url(sanhodep.hbchu-removebg-preview.png); }
+        .coral18 { left: 90%; background-image: url(sanho.bcdv-removebg-preview.png); }
+       
+          
+        /* Vị trí từng cục đá */
+        .coral7 { left: 37%; background-image: url(cục\ đá.png) }
+        .coral8 { left: 71%; background-image: url(cục\ đá.png) }
+
+        /* Sao biển */
+        .starfish {
+            position: absolute;
+            width: 50px; /* Kích thước sao biển */
+            height: 50px;
+            background-size: contain;
+            background-repeat: no-repeat;
+            bottom: 5%;
+            left: calc(5% + (random() * 90%));
+        }
+        .starfish1 {
+            background-image: url(saobien.hdac-removebg-preview.png); /* Hình ảnh sao biển 1 */
+            left: 34%; /* Vị trí bên trái */
+            bottom: 10%; /* Vị trí phía dưới */
+        }
+
+        .starfish2 {
+            background-image: url(saobien.hdac-removebg-preview.png); /* Hình ảnh sao biển 2 */
+            left: 76%; /* Vị trí bên trái */
+            bottom: 20%; /* Vị trí phía dưới */
+        }
+
+        .starfish3 {
+            background-image: url(saobien.hdac-removebg-preview.png); /* Hình ảnh sao biển 3 */
+            left: 16%; /* Vị trí bên trái */
+            bottom: 16%; /* Vị trí phía dưới */
+        }
+        .starfish4 {
+            background-image: url(saobien.hdac-removebg-preview.png); /* Hình ảnh sao biển 3 */
+            left: 66%; /* Vị trí bên trái */
+            bottom: 30%; /* Vị trí phía dưới */
+        }
+         /* Cua */
+         .crab {
+            position: absolute;
+            width: 100px; /* Kích thước cua */
+            height: 100px;
+            background-size: contain;
+            background-repeat: no-repeat;
+            animation: crabCrawl 2s linear infinite; /* Tăng tốc độ */
+        }
+
+        .crab1 {
+            background-image: url(cuabien.png); /* Đường dẫn hình cua 1 */
+            bottom: 10%; /* Vị trí cua */
+            left: 5%;
+            animation-duration: 4s; /* Tăng tốc độ */
+        }
+
+        .crab2 {
+            background-image: url(cuabien.png); /* Đường dẫn hình cua 2 */
+            bottom: 15%; /* Vị trí cua */
+            left: 75%;
+            animation-duration: 5s; /* Tăng tốc độ */
+        }
+        .crab3 {
+            background-image: url(cuabien.png); /* Đường dẫn hình cua 2 */
+            bottom: 5%; /* Vị trí cua */
+            left: 45%;
+            animation-duration: 5s; /* Tăng tốc độ */
+        }
+
+        /* Hiệu ứng bò ngang xa hơn */
+        @keyframes crabCrawl {
+            0% { transform: translateX(0); }
+            50% { transform: translateX(100px); } /* Di chuyển xa hơn */
+            100% { transform: translateX(0); }
+        }
+    </style>
+</head>
+<body>
+    <div class="aquarium">
+        <!-- Các loại cá -->
+        <div class="fish" style="background-image: url(cá\ xanh.png); top: 30%; animation-delay: 0s;"></div>
+        <div class="fish" style="background-image: url(cá\ hề.png); top: 50%; animation-delay: 1s;"></div>
+        <div class="fish" style="background-image: url(cabaymau.png); top: 40%; animation-delay: 2s;"></div>
+        <div class="fish" style="background-image: url(cá\ hề.png); top: 60%; animation-delay: 3s;"></div>
+        <div class="fish" style="background-image: url(cabaymau.png); top: 20%; animation-delay: 4s;"></div>
+        <div class="fish" style="background-image: url(hocacanh/cá\ hề\ .png); top: 35%; animation-delay: 5s;"></div>
+        <div class="fish" style="background-image: url(cabaymau.png); top: 25%; animation-delay: 7s;"></div>
+        <div class="fish" style="background-image: url(cá\ xanh.png); top: 55%; animation-delay: 8s;"></div>
+        
+        <!-- Rùa -->
+        <div class="turtle" style="background-image: url(rùaapng.png); top: 70%; animation-delay: 0s;"></div>
+        
+        <!-- Sứa -->
+        <div class="jellyfish jellyfish1"></div>
+        <div class="jellyfish jellyfish2"></div>
+        
+
+        <!-- Sao biển -->
+        <div class="starfish starfish1"></div>
+        <div class="starfish starfish2"></div>
+        <div class="starfish starfish3"></div>
+
+        <!-- San hô -->
+        <div class="coral coral1"></div>
+        <div class="coral coral2"></div>
+        <div class="coral coral3"></div>
+        <div class="coral coral4"></div>
+        <div class="coral coral5"></div>
+        <div class="coral coral6"></div>
+        <div class="coral coral7"></div>
+        <div class="coral coral8"></div>
+        <div class="coral coral9"></div>
+        <div class="coral coral10"></div>
+        <div class="coral coral11"></div>
+        <div class="coral coral12"></div>
+        <div class="coral coral13"></div>
+        <div class="coral coral14"></div>
+        <div class="coral coral15"></div>
+        <div class="coral coral16"></div>
+        <div class="coral coral17"></div>
+        <div class="coral coral18"></div>
+        
+
+         <!-- Cua biển -->
+        <div class="crab crab1"></div>
+        <div class="crab crab2"></div>
+        <div class="crab crab3"></div>
+        <!-- Shark -->
+        <div class="shark" style="background-image: url(mega.png); top: 30%; animation-delay: 0s;"></div>
+         
+       
+    </div>
+</body>
+</html>

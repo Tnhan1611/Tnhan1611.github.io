@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nguyễn Chu Thành Nhân - CV</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background: linear-gradient(135deg, #e6f2f5, #b3dfe2);
+            color: #333;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            display: flex;
+            max-width: 900px;
+            width: 100%;
+            background-color: #ffffff;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+            border-radius: 12px;
+            overflow: hidden;
+        }
+
+        .left-column {
+            background: linear-gradient(to bottom right, #ffecd2, #fcb69f);
+            width: 35%;
+            padding: 40px 20px;
+            text-align: center;
+            color: #333;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .profile-photo img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .left-column h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 36px;
+            font-weight: 700;
+            margin: 20px 0;
+            color: #333;
+        }
+
+        .left-column .title {
+            font-size: 18px;
+            color: #555;
+            margin-bottom: 30px;
+        }
+
+        .contact-info {
+            width: 100%;
+            text-align: left;
+            margin-top: 30px;
+        }
+
+        .contact-info h3 {
+            font-size: 20px;
+            color: #222;
+            margin-bottom: 10px;
+        }
+
+        .contact-details {
+            display: flex;
+            align-items: center;
+            margin-bottom: 12px;
+            font-size: 14px;
+            color: #555;
+        }
+
+        .contact-details i {
+            margin-right: 10px;
+            color: #ff7f50;
+        }
+
+        .right-column {
+            width: 65%;
+            padding: 40px;
+        }
+
+        .section {
+            margin-bottom: 25px;
+        }
+
+        .section h2 {
+            font-size: 22px;
+            font-weight: 600;
+            margin-bottom: 15px;
+            color: #333;
+            border-bottom: 2px solid #333;
+            padding-bottom: 5px;
+        }
+
+        .description {
+            font-size: 15px;
+            margin-bottom: 15px;
+            line-height: 1.6;
+            color: #666;
+        }
+
+        .section p {
+            font-size: 14px;
+            margin-bottom: 8px;
+            line-height: 1.6;
+            color: #444;
+        }
+
+        .skills {
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        .skills li {
+            font-size: 14px;
+            margin: 5px 15px 5px 0;
+            background-color: #ff7f50;
+            color: #fff;
+            padding: 5px 10px;
+            border-radius: 15px;
+            list-style: none;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                flex-direction: column;
+                width: 100%;
+            }
+            
+            .left-column, .right-column {
+                width: 100%;
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="left-column">
+            <div class="profile-photo">
+                <img src="avata.jpg" alt="Nguyễn Chu Thanh Nhân">
+            </div>
+            <h1>Nguyễn Chu Thành Nhân</h1>
+            <p class="title">Sinh Viên Đại Học Sư Phạm</p>
+            <div class="contact-info">
+                <h3>Liên Hệ</h3>
+                <div class="contact-details"><i class="fas fa-phone-alt"></i>0987 654 321</div>
+                <div class="contact-details"><i class="fas fa-globe"></i>https://bio.link/stickman</div>
+                <div class="contact-details"><i class="fas fa-envelope"></i>5001104105@student.hcmue.edu.vn</div>
+                <div class="contact-details"><i class="fab fa-instagram"></i>@tnhan.1611</div>
+                <div class="contact-details"><i class="fas fa-map-marker-alt"></i>20 Lý Tự Trọng, Bến Nghé, Quận 1, Hồ Chí Minh, Việt Nam</div>
+            </div>
+        </div>
+        <div class="right-column">
+            <div class="section">
+                <h3 class="section-title">Kỹ năng</h3>
+                <div class="section-content">
+                    <ul>
+                        <li>HTML, CSS, Bootstrap, JavaScript</li>
+                        <li>C++, Python, PHP</li>
+                        <li>Kỹ năng làm việc nhóm tốt</li>
+                    </ul>
+                </div>
+            </div>
+    
+            <!-- Chứng chỉ -->
+            <div class="section">
+                <h3 class="section-title">Chứng chỉ</h3>
+                <div class="section-content">
+                    <ul>
+                        <li>IELTS 6.0</li>
+                        <li>Chứng chỉ tin học văn phòng (MOS)</li>
+                        <li>TOEIC 650</li>
+                    </ul>
+                </div>
+            </div>
+    
+            <!-- Sở thích -->
+            <div class="section">
+                <h3 class="section-title">Sở thích</h3>
+                <div class="section-content">
+                    <ul>
+                        <li>Đi dạo</li>
+                        <li>Ngắm nhìn bầu trời</li>
+                        <li>Đọc sách</li>
+                        <li>Luyện tập các kỹ năng lập trình</li>
+                    </ul>
+                </div>
+            </div>
+    
+            <!-- Học vấn -->
+            <div class="section">
+                <h3 class="section-title">Học vấn</h3>
+                <div class="section-content timeline">
+                    <div class="timeline-item">
+                        <p class="date">2024 - 2028</p>
+                        <p>Sinh viên Đại học Sư Phạm Thành Phố Hồ Chí Minh, ngành Công Nghệ Thông Tin</p>
+                    </div>
+                </div>
+            </div>
+    
+            <!-- Giải thưởng -->
+            <div class="section">
+                <h3 class="section-title">Giải thưởng</h3>
+                <div class="section-content">
+                    <ul>
+                        <li>Sinh viên 5 tốt ở HCMUE</li>
+                        <li>Học bổng 1% Stanford</li>
+                    </ul>
+                </div>
+            </div>
+    
+            <!-- Kinh nghiệm làm việc -->
+            <div class="section">
+                <h3 class="section-title">Kinh nghiệm làm việc</h3>
+                <p><strong>Công việc Part-time</strong></p>
+                <div class="section-content timeline">
+                    <div class="timeline-item"> 
+                        <p class="date">09/2023 - 02/2024</p>
+                        <p>Quán Coffee ở Biên Hòa</p>
+                        <ul>
+                            <li>Thu ngân</li>
+                            <li>Pha chế</li>
+                            <li>Phục vụ</li>
+                        </ul>
+                    </div>
+                    <div class="timeline-item"> 
+                        <p class="date">07/2023 - 01/2024</p> 
+                        <p>Nhà Hàng Cát Tường Garden ở Biên Hòa</p>
+                        <ul>
+                            <li>Phục vụ bữa ăn khi dùng tiệc</li>
+                            <li>Setup tiệc</li>
+                            <li>Đưa đón khách khi xong tiệc</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+    
+            <!-- Hoạt động -->
+            <div class="section">
+                <h3 class="section-title">Hoạt động</h3>
+                <div class="section-content">
+                    <ul>
+                        <li>Tham gia phát cháo tình nguyện ở Bệnh Viện Phạm Ngọc Thạch</li>
+                        <li>Tham gia các dự án bảo vệ môi trường ở HCMUE</li>
+                        <li>Giúp đỡ các trẻ em ở nhà tình thương công giáo</li>
+                    </ul>
+                </div>
+            </div>
+    
+            <!-- Dự án tham gia -->
+            <div class="section">
+                <h3 class="section-title">Dự án tham gia</h3>
+                <div class="section-content">
+                    <ul>
+                        <li>Nghiên cứu khoa học</li>
+                        <li>Mùa hè xanh</li>
+                        <li>Tình nguyện ở nhà tình thương</li>
+                    </ul>
+                </div>
+            </div>
+            <!-- Mục tiêu nghề nghiệp -->
+            <div class="section">
+                <h3 class="section-title">Mục tiêu trong nghề nghiệp</h3>
+                <div class="section-content">
+                    <p>Có thể trở thành một dev Full-Stack thực sự, Coder số một trường và thành công trên con đường mà bản thân đã chọn.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
